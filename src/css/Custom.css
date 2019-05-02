@@ -1,0 +1,85 @@
+.component {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 5rem;
+}
+
+ul {
+  list-style: none;
+}
+
+.bookUl {
+  display: flex;
+  justify-content: center;
+}
+
+.bookUl li {
+  margin: 2rem;
+}
+
+img {
+  max-width: 20rem;
+  max-height: 50rem;
+}
+
+.header {
+  display: flex;
+  position: sticky;
+  top: 0;
+  background-color: blue;
+  color: white;
+  margin-bottom: .5rem;
+  padding-bottom: 0;
+  height: 4.5rem;
+  align-items: center;
+}
+
+.header ul {
+  display: flex;
+}
+
+.header div {
+  margin: 1rem;
+}
+
+.footer {
+  position: relative;
+  bottom: 0;
+  background-color: green;
+  color: white;
+  width:100%;
+  text-align: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+
+}
+
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35rem;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+}
+.navlink {
+  color: white;
+  text-decoration: none;
+}
+
+.add-book {
+  height: 20rem;
+}
+div .aboutLink {
+  display: flex;
+  margin-left: auto;
+}
+
+.header button {
+  background-color: blue;
+}
