@@ -7,7 +7,8 @@ class ViewLocations extends Component {
 
     this.state = {
       locations: [],
-      locationItems: []
+      locationItems: [],
+      message: ''
     }
   }
   componentDidMount() {
@@ -19,17 +20,22 @@ class ViewLocations extends Component {
     fetch(url)
     .then(response => response.json())
     .then(json => {
-      this.setState({
-        locations: {lat:json.lat,long:json.long}
-      })
-    }).then(() => {
-      let locations = this.state.locations
-      let locationItems = locations.map((location) => {
-        return <li>{location.lat}, {location.long}</li>
-      })
-      this.setState({
-        locationItems: locationItems
-      })
+      if(json.length === undefined) {
+        this.setState({
+          message: json.message
+        })
+      } else {
+        this.setState({
+          locations: [{lat:json.lat,long:json.long}]
+        })
+        let locations = this.state.locations
+        let locationItems = locations.map((location) => {
+          return <li key={location.id}>{location.lat}, {location.long}</li>
+        })
+        this.setState({
+          locationItems: locationItems
+        })
+      }
     })
   }
 
@@ -38,6 +44,7 @@ class ViewLocations extends Component {
       <div>
         Locations
         <ul>{this.state.locationItems}</ul>
+        {this.state.message}
       </div>
     )
   }

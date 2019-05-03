@@ -1,8 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux'
 import * as actionCreators from '../store/actions/actionCreators'
 
 const App = props => {
+
+  // useEffect(() => {
+  //   console.log('hello')
+  //   console.log(navigator)
+  //   console.log(navigator.geolocation)
+  //   if ("geolocation" in navigator) {
+  //     navigator.geolocation.getCurrentPosition((position)=> {
+  //       console.log(position)
+  //     }, (error) => {
+  //       console.log(error)
+  //     })
+  //   } else {
+  //     console.log('error')
+  //   }
+  // }, [])
+
 
   const handleSaveLocationClick = () => {
     props.onLocationFetched()
@@ -24,7 +40,6 @@ const App = props => {
       </div>
     )
   }
-
 }
 
 const mapStateToProps = (state) => {
