@@ -12,6 +12,8 @@ import App from './components/App'
 import Login from './components/Login'
 import Register from './components/Register'
 import About from './components/About'
+import Home from './components/Home'
+import ViewLocations from './components/ViewLocations'
 import * as serviceWorker from './serviceWorker';
 import './css/Custom.css'
 
@@ -26,10 +28,12 @@ ReactDOM.render(
     <BrowserRouter>
       <BaseLayout>
         <Switch>
-          <Route path="/" exact component={App} />
+          <Route path="/" exact component={Home} />
+          <Route path="/save-location" component={App} />
           <Route path="/about" component={About} />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
+          <Route path="/view-locations/user-id/:userId" component={ViewLocations} />
         </Switch>
       </BaseLayout>
     </BrowserRouter>
