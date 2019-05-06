@@ -14,7 +14,7 @@ const reducer = ( state = initialState, action) => {
     case 'SIGN_IN':
     return {
       ...state,
-      isAuth: true,
+      isAuth: action.token != null ? true : false,
       userId: action.userId
     }
     case 'SIGN_OUT':
@@ -23,9 +23,9 @@ const reducer = ( state = initialState, action) => {
       isAuth: false,
       userId: null
     }
+    default:
+    return  state
   }
-
-  return state
 }
 
 export default reducer

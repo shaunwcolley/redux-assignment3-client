@@ -20,22 +20,22 @@ class ViewLocations extends Component {
     fetch(url)
     .then(response => response.json())
     .then(json => {
-      if(json.length === undefined) {
-        this.setState({
-          message: json.message
-        })
-      } else {
-        this.setState({
-          locations: [{lat:json.lat,long:json.long}]
-        })
-        let locations = this.state.locations
-        let locationItems = locations.map((location) => {
-          return <li key={location.id}>{location.lat}, {location.long}</li>
-        })
-        this.setState({
-          locationItems: locationItems
-        })
-      }
+      this.setState({
+        locations: json.locations
+      })
+      console.log(this.state.locations)
+      let locations = this.state.locations
+      let locationItems = locations.map((location) => {
+        return <li key={location.id}>
+        <p>Date: {location.createdAt}</p>
+        <p>Latitude: {location.lat}</p>
+        <p>Longitude: {location.long}</p>
+        <a href={`https://www.latlong.net/c/?lat=${location.lat}&long=${location.long}`}>View</a>
+        </li>
+      })
+      this.setState({
+        locationItems: locationItems
+      })
     })
   }
 
