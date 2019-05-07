@@ -50,24 +50,15 @@ class App extends Component {
     this.props.onLocationFetched(this.state.geoLocation, this.state.fetchLocation)
   }
   render(){
-    if(this.props.isAuth){
-      return (
-        <div>
-          <h4>Save location:</h4>
-          <button onClick={this.handleSaveLocationClick}>Save</button>
-          <p>latitude: {this.props.location.lat} </p>
-          <p>longitude: {this.props.location.long} </p>
-          <p>Your url to view locations is: localhost:3000/view-locations/user-id/{this.props.userId}</p>
-        </div>
-      )
-    } else {
-      this.props.history.push('/login')
-      return (
-        <div>
-          <h3>Please Login.</h3>
-        </div>
-      )
-    }
+    return (
+      <div>
+        <h4>Save location:</h4>
+        <button onClick={this.handleSaveLocationClick}>Save</button>
+        <p>latitude: {this.props.location.lat} </p>
+        <p>longitude: {this.props.location.long} </p>
+        <p>Your url to view locations is: localhost:3000/view-locations/user-id/{this.props.userId}</p>
+      </div>
+    )
   }
 }
 

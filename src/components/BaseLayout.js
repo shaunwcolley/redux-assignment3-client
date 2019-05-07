@@ -6,8 +6,9 @@ import { connect } from 'react-redux'
 export class Header extends Component {
 
   handleSignOutClick = () => {
-    this.props.history.push('/login')
+    localStorage.removeItem('jsonwebtoken')
     this.props.onSignOut()
+    this.props.history.push('/login')
   }
 
   render() {
